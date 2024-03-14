@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1><a href="/">Home</a></h1>
+    <h1><a href="/navigation/about">About</a></h1>
+    <h1><a href="/navigation/contact">Contact</a></h1>
+    <h1><a href="/first_app/">First App</a></h1>
+    <br />
+    <br />
+    <h1>First app home</h1>
+    <h3>Template Filters Practice</h3>
+    <br />
+
+    <h3>&gt; add</h3>
+    <h3>Age: {{age}} + 2 = {{age|add:2}}</h3>
+    <br />
+
+    <h3>&gt; addslashes</h3>
+    <h3>{{intro|addslashes}}</h3>
+    <br />
+
+    <h3>&gt; capfirst</h3>
+    <h3>{{author|capfirst}}</h3>
+    <br />
+
+    <h3>&gt; center</h3>
+    <h3>"{{author|center:"20"}}"</h3>
+    <br />
+
+    <h3>&gt; cut</h3>
+    <h3>{{intro|cut:" "}}</h3>
+    <br />
+
+    <h3>&gt; date</h3>
+    <h3>{{time|date:"D d M Y"}}</h3>
+    <br />
+
+    <h3>&gt; time</h3>
+    <h3>{{time|time:"H:i"}}</h3>
+    <br />
+
+    <h3>&gt; timesince</h3>
+    <h3>{{comment_date}} < to > {{time}}</h3>
+    <h3>{{comment_date|timesince:time}}</h3>
+    <br />
+
+    <h3>&gt; default</h3>
+    <h3>{{""|default:"nothing"}}</h3>
+    <br />
+
+    <h3>&gt; dictsort</h3>
+    <h3>{{courses|dictsort:"fees"}}</h3>
+    <br />
+
+    <h3>&gt; divisibleby</h3>
+    <h3>{{age}}/3 = {{age|divisibleby:'3'}}</h3>
+    <br />
+
+    <h3>&gt; escape</h3>
+    <h3>{{"< > ' &"|escape}}</h3>
+    <br />
+
+    <h3>&gt; first</h3>
+    <h3>{{lst|first}}</h3>
+    <br />
+
+    <h3>&gt; last</h3>
+    <h3>{{lst|last}}</h3>
+    <br />
+
+    <h3>&gt; join</h3>
+    <h3>{{ lst | join:" - " }}</h3>
+    <br />
+
+    <h3>&gt; length</h3>
+    <h3>{{lst|length}}</h3>
+    <br />
+
+    <h3>&gt; lower</h3>
+    <h3>{{intro|lower}}</h3>
+    <br />
+
+    <h3>&gt; make_list</h3>
+    <h3>{{"ABCDEFG"|make_list}}</h3>
+    <br />
+
+    <h3>&gt; random</h3>
+    <h3>{{lst|random}}</h3>
+    <br />
+
+    <h3>&gt; slice</h3>
+    <h3>{{lst|slice:2}}</h3>
+    <br />
+
+    <h3>&gt; slugify</h3>
+    <h3>{{intro|slugify}}</h3>
+    <br />
+
+    <h3>&gt; wordcount</h3>
+    <h3>
+      {{"You can do a lot of modifications with template filters"|wordcount}}
+    </h3>
+    <br />
+
+    <h3>&gt; truncatewords</h3>
+    <h3>{{"You can build web apps with python and Django"|truncatewords:5}}</h3>
+    <br />
+
+    <h3>&gt; striptags</h3>
+    <h3>{{"<b>This</b> is <em>a</em> <button>Button</button>"|striptags}}</h3>
+    <br />
+  </body>
+</html>

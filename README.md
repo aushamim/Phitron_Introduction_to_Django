@@ -1,1 +1,1 @@
-"# W3_Introduction_to_Django" 
+# W3_Introduction_to_Django
