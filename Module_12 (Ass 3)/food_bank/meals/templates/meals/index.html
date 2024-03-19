@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_content %}
+<div class="w-75 mx-auto pt-5 container">
+    <div class="row g-4">
+        {% for category in categories %}
+            <div class="col-4">
+                <div class="card">
+                    <img src="{{category.strCategoryThumb}}" class="card-img-top" alt="{{category.strCategory}}_image">
+                    <div class="card-body">
+                        <h5 class="card-title">{{category.idCategory}}. {{category.strCategory}}</h5>
+                        <p class="card-text">{{category.strCategoryDescription | truncatewords:10}}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock page_content %}

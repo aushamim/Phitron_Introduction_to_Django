@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_content %}
+
+<div class="hero m-0 px-3 pt-5">
+    <div>
+        <img class="w-100 h-100 rounded" src="{% static 'gordon ramsay.jpg' %}" alt="Gordon Ramsay">
+    </div>
+    <div>
+        <h1>Food Bank</h1>
+        <h3 class="mt-4">Restaurant Trusted & Loved By Many.</h3>
+        <h5 class="mt-4">We take pride over our quality. <br>For your best experience we have employed many world class chefs.</h5>
+        <h5 class="mt-3">One of them is the famous <span class="fs-2">Gordon Ramsay!</span></h5>
+        
+        <h6 class="mt-5 mb-0">For more information contact us here</h6>
+        <p class="my-0"><span class="fw-semibold">Mail:</span> foodbank@phitron-mail.com</p>
+        <p class="my-0"><span class="fw-semibold">Phone:</span> 09876 543 210</p>
+    </div>
+</div>
+{% endblock page_content %}
