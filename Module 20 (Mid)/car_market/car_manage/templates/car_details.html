@@ -1,0 +1,77 @@
+{% extends "base.html" %} {% block content %} {% load crispy_forms_tags %}
+
+<div class="mx-3 mb-5">
+  <div class="card">
+    <div class="row">
+      <div class="col-6">
+        <img
+          class="card-img-top"
+          src="/{{object.image}}"
+          alt="Card image cap"
+        />
+      </div>
+      <div class="card-body col-6">
+        <h3 class="card-title">{{object.name}}</h3>
+        <h5 class="card-subtitle my-3 text-muted col-6">
+          Brand: {{object.brand}}
+        </h5>
+        <h5 class="card-subtitle my-3 text-muted col-6">
+          Price: {{object.price}}$
+        </h5>
+        <h5 class="card-subtitle my-3 text-muted col-6">
+          Quantity: {{object.quantity}}
+        </h5>
+        <p class="card-text text-justify my-3">{{object.description}}</p>
+
+        {% if user.is_authenticated %} {% if object.quantity > 0 %}
+        <a href="{% url 'buy-car' object.id %}" class="btn btn-success"
+          >Buy Now</a
+        >
+        {% else %}
+        <a href="" class="btn btn-outline-danger">Out of Stock</a>
+        {% endif %}
+        <a href="/" class="btn btn-danger">Cancel</a>
+        {% else %}
+        <a href="/" class="btn btn-primary">Back</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <div class="my-5">
+    <h5 class="card-title mb-2 ms-1">All Comments ({{comments|length}})</h5>
+    {% for comment in comments %}
+    <div class="card my-2">
+      <div class="card-body">
+        <h5 class="card-title mb-2">{{comment.name}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted col-6">
+          Commented {{comment.created_on|timesince}} ago
+        </h6>
+
+        <div class="card">
+          <div class="card-body">
+            <p>{{comment.comment}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="my-5">
+    <h5 class="card-title mb-2 ms-1">New Comment</h5>
+    <div class="card">
+      <div class="card-body">
+        <form method="post">
+          {% csrf_token %} {{comment_form|crispy}}
+
+          <div class="d-flex justify-content-end mt-3">
+            <input class="btn btn-primary" type="submit" value="Submit" />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

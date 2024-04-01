@@ -1,0 +1,47 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="mx-3">
+  <div class="d-flex">
+    <h3 class="mb-0">{{user|title}}'s Profile</h3>
+    <a href="{% url 'edit-profile' %}" class="btn btn-outline-primary ms-4"
+      >Edit Profile</a
+    >
+  </div>
+
+  <div class="my-5">
+    <h3>My Cars ({{bought_cars|length}})</h3>
+    <div class="row g-5">
+      {% for car in bought_cars %}
+      <div class="col-3">
+        <div class="card">
+          <img
+            class="card-img-top"
+            src="/{{car.car.image}}"
+            alt="Card image cap"
+            style="height: 180px"
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{car.car.name}}</h5>
+            <div class="row my-2">
+              <h6 class="card-subtitle mb-2 text-muted col-6">
+                Brand: {{car.car.brand}}
+              </h6>
+              <h6 class="card-subtitle mb-2 text-muted col-6">
+                Price: {{car.car.price}}$
+              </h6>
+            </div>
+            <p class="card-text text-justify">
+              {{car.car.description|truncatewords:15}}
+            </p>
+            <a href="{% url 'car-details' car.car.id %}" class="btn btn-primary"
+              >View Details</a
+            >
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

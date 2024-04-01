@@ -1,0 +1,64 @@
+{% extends "base.html" %} {% block content %} {% load static %}
+
+<div class="mx-3 mb-5">
+  <div class="row mb-5">
+    <div class="col-6 d-flex flex-column justify-content-center">
+      <h1>New Year's <br />New Arrived Cars</h1>
+      <h3 class="my-3">The most trusted cars shop.</h3>
+      <h3 class="my-3">Take your pick</h3>
+    </div>
+    <div class="col-6">
+      <img class="card-img-top rounded" src="{% static "cars.jpg" %}"
+      alt="Cimage cap" />
+    </div>
+  </div>
+
+  <div class="my-5">
+    <h6>Filter by Brand</h6>
+    <div>
+      <a href="/" class="btn btn-primary">All</a>
+      {% for brand in brands %}
+      <a href="{% url 'brand-filter' brand.slug %}" class="btn btn-primary"
+        >{{brand.name}}</a
+      >
+      {% endfor %}
+    </div>
+    <button class="btn btn-outline-primary mt-4">
+      Total Car Found: {{cars|length}}
+    </button>
+  </div>
+
+  <div class="row g-5">
+    {% for car in cars %}
+    <div class="col-3">
+      <div class="card">
+        <img
+          class="card-img-top"
+          src="/{{car.image}}"
+          alt="Card image cap"
+          style="height: 180px"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{car.name}}</h5>
+          <div class="row my-2">
+            <h6 class="card-subtitle mb-2 text-muted col-6">
+              Brand: {{car.brand}}
+            </h6>
+            <h6 class="card-subtitle mb-2 text-muted col-6">
+              Price: {{car.price}}$
+            </h6>
+          </div>
+          <p class="card-text text-justify">
+            {{car.description|truncatewords:15}}
+          </p>
+          <a href="{% url 'car-details' car.id %}" class="btn btn-primary"
+            >View Details</a
+          >
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock content %}
